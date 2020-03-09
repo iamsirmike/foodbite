@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
-import 'register.dart';
-// import '../widgets/login_form.dart';
+import 'login.dart';
 
-class Login extends StatefulWidget {
+class Register extends StatefulWidget {
   @override
-  _LoginState createState() => _LoginState();
+  _RegisterState createState() => _RegisterState();
 }
 
-class _LoginState extends State<Login> {
-  //input filed
+class _RegisterState extends State<Register> {
   InputDecoration inputDecoration({Icon icon, Icon sicon, String hintText}) {
     return InputDecoration(
         prefixIcon: icon,
@@ -52,7 +50,7 @@ class _LoginState extends State<Login> {
           }
         },
         child: Text(
-          'Login',
+          'Register',
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 20,
@@ -63,7 +61,7 @@ class _LoginState extends State<Login> {
     );
   }
 
-//login with google container
+//register with google container
   Container googleButton() {
     return Container(
       width: double.infinity,
@@ -80,7 +78,7 @@ class _LoginState extends State<Login> {
           print('yaaay');
         },
         child: Text(
-          'Login with Google',
+          'Register with Google',
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 20,
@@ -116,7 +114,7 @@ class _LoginState extends State<Login> {
                   Padding(
                     padding: const EdgeInsets.fromLTRB(30, 50, 0, 20),
                     child: Text(
-                      'Let\'s start with login!',
+                      'Let\'s get you registered!',
                       style: TextStyle(
                         fontFamily: 'Poppins',
                         fontSize: 25,
@@ -137,14 +135,28 @@ class _LoginState extends State<Login> {
                         TextFormField(
                           validator: (value) {
                             if (value.isEmpty) {
-                              return 'Enter a valid username';
+                              return 'Enter a valid name';
                             }
                             return null;
                           },
                           style: TextStyle(color: Colors.deepOrange),
                           decoration: inputDecoration(
                             icon: Icon(Icons.person, color: Color(0xffEB5C43)),
-                            hintText: 'username',
+                            hintText: 'Full Name',
+                          ),
+                        ),
+                        SizedBox(height: 10),
+                        TextFormField(
+                          validator: (value) {
+                            if (value.isEmpty) {
+                              return 'Enter a valid email';
+                            }
+                            return null;
+                          },
+                          style: TextStyle(color: Colors.deepOrange),
+                          decoration: inputDecoration(
+                            icon: Icon(Icons.email, color: Color(0xffEB5C43)),
+                            hintText: 'Email',
                           ),
                         ),
                         SizedBox(height: 10),
@@ -178,35 +190,20 @@ class _LoginState extends State<Login> {
                     ),
                   ),
                   FlatButton(
-                    onPressed: () {},
-                    child: Container(
-                      padding: EdgeInsets.fromLTRB(45, 0, 30, 0),
-                      child: Text(
-                        'I\'ve forgotten my password',
-                        style: TextStyle(
-                          color: Colors.grey.shade900,
-                          fontSize: 20,
-                        ),
-                      ),
-                    ),
-                  ),
-                  // SizedBox(
-                  //   height: 20,
-                  // ),
-                  FlatButton(
                     onPressed: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (BuildContext context) {
-                            return Register();
+                            return Login();
                           },
                         ),
                       );
                     },
                     child: Container(
-                      padding: EdgeInsets.fromLTRB(45, 0, 30, 0),
+                      width: double.infinity,
+                      padding: EdgeInsets.fromLTRB(90, 0, 30, 0),
                       child: Text(
-                        'I don\'t have an account',
+                        'Take me to login',
                         style: TextStyle(
                           color: Colors.grey.shade900,
                           fontSize: 20,
