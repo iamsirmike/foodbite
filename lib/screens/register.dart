@@ -99,7 +99,7 @@ class _RegisterState extends State<Register> {
           Container(
             height: 300,
             decoration: BoxDecoration(
-              color: Color(0xffEB5C44),
+              color: Colors.teal,
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(10.0),
                 bottomRight: Radius.circular(10.0),
